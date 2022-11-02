@@ -50,8 +50,17 @@ function detalhar(idUsuario){
 }
 
 function remover(idDoUsuarioParaRemover){
-    // Seu código aqui
+
+    let index = usuarios.findIndex(index => index.id === idDoUsuarioParaRemover);
+    usuarios.filter (u =>
+        {
+            if (idDoUsuarioParaRemover === u.id){
+            usuarios.splice(index,1);
+            }
+        })
+    salvar(usuarios);
 }
+
 
 function alterar(novosDados, idUsuario){
     // Seu código aqui
