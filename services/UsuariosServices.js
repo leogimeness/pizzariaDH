@@ -74,7 +74,13 @@ function alterar(novosDados, idUsuario){
 }
 
 function addEndereco(novoEndereco, idUsuario){
-    // Seu código aqui
+    
+    var usuario = usuarios.find(usuario => idUsuario === usuario.id);
+    
+    usuario.enderecos.push(novoEndereco)
+    salvar(usuarios);
+
+    
 }
 
 function removerEndereco(posicaoDoEndereco, idUsuario){
