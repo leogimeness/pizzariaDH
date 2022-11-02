@@ -1,5 +1,14 @@
+const usuarios = require('../databases/usuarios.json');
+
 function listar(){
-    
+
+    console.table(usuarios.map(u => {
+        return { 
+            id: u.id,
+            nome: u.nome,
+            email: u.email
+        }
+    }))
 }
 
 function salvar(arrayDeUsuarios){
