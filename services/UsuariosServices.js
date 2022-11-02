@@ -36,7 +36,17 @@ function cadastrar(objeto){
 }
 
 function detalhar(idUsuario){
-// Seu código aqui
+    
+    var usuarioSelecionado = usuarios.find(u => idUsuario === u.id);
+
+    console.log("Nome: " + usuarioSelecionado.nome);
+    console.log("Email: " + usuarioSelecionado.email);
+
+    console.log("\nEndereços:");
+    console.table(usuarioSelecionado.enderecos);
+
+    console.log("\nFormas de Pagamento");
+    console.table(usuarioSelecionado.formasDePagamento);
 }
 
 function remover(idDoUsuarioParaRemover){
