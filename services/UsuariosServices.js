@@ -84,7 +84,15 @@ function addEndereco(novoEndereco, idUsuario){
 }
 
 function removerEndereco(posicaoDoEndereco, idUsuario){
-// Seu código aqui
+
+    var usuarioSelecionado = usuarios.find(u => idUsuario === u.id);
+    
+    for (let i = 0; i < usuarioSelecionado.enderecos.length + 1; i++){
+        if( i === posicaoDoEndereco){
+            usuarioSelecionado.enderecos.splice(i,1)
+        }
+    }
+    salvar(usuarios)
 }
 
 function alterarEndereco(posicaoDoEndereco, novoEndereco, idUsuario){

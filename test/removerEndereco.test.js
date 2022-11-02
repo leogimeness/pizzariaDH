@@ -1,3 +1,3 @@
 const services = require('../services/UsuariosServices');
 
-services.addEndereco("lelelele", 4)
+services.removerEndereco(1,4)
