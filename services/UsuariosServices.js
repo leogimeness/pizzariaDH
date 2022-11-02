@@ -61,9 +61,16 @@ function remover(idDoUsuarioParaRemover){
     salvar(usuarios);
 }
 
-
 function alterar(novosDados, idUsuario){
-    // Seu código aqui
+    
+    var usuarioSelecionado = usuarios.find(u => idUsuario === u.id);
+    
+    usuarioSelecionado.nome = novosDados.nome;
+    usuarioSelecionado.email = novosDados.email;
+    usuarioSelecionado.senha = bcrypt.hashSync(novosDados.senha,10)
+
+    usuarios.push(usuarioSelecionado);
+    salvar(usuarios);
 }
 
 function addEndereco(novoEndereco, idUsuario){
