@@ -1,5 +1,6 @@
 const usuarios = require('../databases/usuarios.json');
 const fs = require('fs');
+const bcrypt = require('bcrypt');
 
 function listar(){
 
@@ -14,12 +15,24 @@ function listar(){
 
 function salvar(arrayDeUsuarios){
     
-    fs.writeFileSync("./databases/usuario.json",JSON.stringify(arrayDeUsuarios,null,4));
+    fs.writeFileSync("./databases/usuarios.json",JSON.stringify(arrayDeUsuarios,null,4));
 
 }
 
 function cadastrar(objeto){
-// Seu código aqui
+
+    let uniqueId = usuarios[usuarios.length - 1].id + 1;
+
+    let usuario = {
+        id: uniqueId,
+        nome: objeto.nome,
+        email: objeto.email,
+        senha: bcrypt.hashSync(objeto.senha,10),
+        endereco: objeto.endereco,
+        formasDePagamento: []
+    }
+    usuarios.push(usuario);
+    salvar(usuarios);
 }
 
 function detalhar(idUsuario){
