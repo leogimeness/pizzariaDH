@@ -116,7 +116,15 @@ function addFormaDePagamento(novaFormaDePagamento, idUsuario){
 }
 
 function removerFormaDePagamento(posicaoDaFormaDePagamento, idUsuario){
-    // Seu código aqui
+    
+    var usuarioSelecionado = usuarios.find(u => idUsuario === u.id);
+    
+    for (let i = 0; i < usuarioSelecionado.formasDePagamento.length; i++){
+        if( i === posicaoDaFormaDePagamento){
+            usuarioSelecionado.formasDePagamento.splice(i,1)
+        }
+    }
+    salvar(usuarios)
 }
 
 function alterarFormaDePagamento(novaFormaDePagamento, posicaoDaFormaDePagamento, idUsuario){
