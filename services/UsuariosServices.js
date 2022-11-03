@@ -108,7 +108,11 @@ function alterarEndereco(posicaoDoEndereco, novoEndereco, idUsuario){
 }
 
 function addFormaDePagamento(novaFormaDePagamento, idUsuario){
-    // Seu código aqui
+    var usuarioSelecionado =  usuarios.find(u => idUsuario === u.id);
+
+    usuarioSelecionado.formasDePagamento.push(novaFormaDePagamento);
+    salvar(usuarios);
+    
 }
 
 function removerFormaDePagamento(posicaoDaFormaDePagamento, idUsuario){
