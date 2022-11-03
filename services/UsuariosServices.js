@@ -87,7 +87,7 @@ function removerEndereco(posicaoDoEndereco, idUsuario){
 
     var usuarioSelecionado = usuarios.find(u => idUsuario === u.id);
     
-    for (let i = 0; i < usuarioSelecionado.enderecos.length + 1; i++){
+    for (let i = 0; i < usuarioSelecionado.enderecos.length; i++){
         if( i === posicaoDoEndereco){
             usuarioSelecionado.enderecos.splice(i,1)
         }
@@ -96,7 +96,15 @@ function removerEndereco(posicaoDoEndereco, idUsuario){
 }
 
 function alterarEndereco(posicaoDoEndereco, novoEndereco, idUsuario){
-// Seu código aqui        
+
+    var usuarioSelecionado = usuarios.find(u => idUsuario === u.id);
+
+    for (let i = 0; i < usuarioSelecionado.enderecos.length; i++){
+        if (i === posicaoDoEndereco){
+            usuarioSelecionado.enderecos.push(novoEndereco);
+        }
+    }
+    salvar(usuarios);
 }
 
 function addFormaDePagamento(novaFormaDePagamento, idUsuario){
