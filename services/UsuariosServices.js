@@ -101,7 +101,7 @@ function alterarEndereco(posicaoDoEndereco, novoEndereco, idUsuario){
 
     for (let i = 0; i < usuarioSelecionado.enderecos.length; i++){
         if (i === posicaoDoEndereco){
-            usuarioSelecionado.enderecos.push(novoEndereco);
+            usuarioSelecionado.enderecos[i] = novoEndereco
         }
     }
     salvar(usuarios);
@@ -128,7 +128,15 @@ function removerFormaDePagamento(posicaoDaFormaDePagamento, idUsuario){
 }
 
 function alterarFormaDePagamento(novaFormaDePagamento, posicaoDaFormaDePagamento, idUsuario){
-    // Seu código aqui
+    
+     usuarioSelecionado = usuarios.find(u => idUsuario === u.id);
+
+    for (let i = 0; i < usuarioSelecionado.formasDePagamento.length; i++){
+        if (i === posicaoDaFormaDePagamento){
+            usuarioSelecionado.formasDePagamento[i] = novaFormaDePagamento;
+        }
+    }
+    salvar(usuarios);
 }
 
 const UsuariosServices = {
